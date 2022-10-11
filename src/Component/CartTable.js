@@ -80,7 +80,15 @@ const CartTable = ({ cart, dispatch }) => {
                   <Select
                     native
                     value={product.qty}
-                    //   onChange={handleChange}
+                    onChange={(e) =>
+                      dispatch({
+                        type: "CHANGE_CART_QTY",
+                        payload: {
+                          id: product.id,
+                          qty: e.target.value,
+                        },
+                      })
+                    }
                     label="Qty"
                     inputProps={{
                       name: "qty",

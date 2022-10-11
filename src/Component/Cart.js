@@ -1,9 +1,9 @@
-import React,{useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import { CartState } from "../Context/Context";
-import { Container } from "@material-ui/core";
+import { Container, Typography ,Button} from "@material-ui/core";
 import CartTable from "./CartTable";
 
 const useStyles = makeStyles((theme) => ({
@@ -20,26 +20,35 @@ const useStyles = makeStyles((theme) => ({
 const Cart = () => {
   const classes = useStyles();
   const {
-    state: { cart }, dispatch
+    state: { cart },
+    dispatch,
   } = CartState();
 
-  const [total, setTotal] = useState()
+  const [total, setTotal] = useState();
 
   useEffect(() => {
-    setTotal(cart.reduce((acc,curr) => acc + Number(curr.price)*curr.qty,0))
-  },[cart])
+    setTotal(
+      cart.reduce((acc, curr) => acc + Number(curr.price) * curr.qty, 0)
+    );
+  }, [cart]);
 
   return (
     <Container>
-        <br />
+      <br />
       <div className={classes.root}>
         <Grid container spacing={3}>
           <Grid item xs={8}>
-           <CartTable cart={cart} dispatch={dispatch} />
+            <CartTable cart={cart} dispatch={dispatch} />
           </Grid>
           <Grid item xs={4}>
             <Paper className={classes.paper}>
-                Total {total}
+              <div style={{textAlign: 'start'}}>
+              <Typography>SubTotal ({cart.length}) Items</Typography>
+              <Typography>Total k {total}</Typography>
+              </div>
+              <Button variant="contained" color="primary" fullWidth >
+                Process to checkout
+              </Button>
             </Paper>
           </Grid>
         </Grid>

@@ -4,6 +4,7 @@ import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
+import { Button } from "@material-ui/core";
 import { Ratings } from "./Ratings";
 
 export const Filter = () => {
@@ -49,11 +50,13 @@ export const Filter = () => {
             control={<Radio />}
             label="Fast delivery only"
           />
-          <span>
-            <label>Rating: </label>
+          <span style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+            <label style={{paddingRight: 10, fontSize: 18}}>Rating: </label>
             <Ratings rate={rate} onClick={(index) => setRate(index + 1)} style={{cursor: 'pointer'}} />
           </span>
         </RadioGroup>
+        <br />
+          <Button size="small" variant="contained" fullWidth >Clear Filter</Button>
       </FormControl>
     </div>
   );

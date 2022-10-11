@@ -17,7 +17,6 @@ export const Filter = () => {
     productDispatch,
   } = CartState();
 
-  console.log(byStock, byFastDelivery, sort, byRating, searchQuery);
 
   const handleChange = (event) => {
     setValue(event.target.value);

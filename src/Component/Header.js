@@ -110,9 +110,11 @@ export default function Header() {
     >
       <MenuItem>
         <IconButton aria-label="show 4 new mails" color="inherit">
+        <Link to="/cart"style={{textDecoration: 'none'}} >
           <Badge badgeContent={cart.length} color="secondary">
             <ShoppingCartIcon />
           </Badge>
+          </Link>
         </IconButton>
       </MenuItem>
       
@@ -136,7 +138,7 @@ export default function Header() {
         <Toolbar>
           <Typography className={classes.title} variant="h6" noWrap>
             <Link to="/"style={{textDecoration: 'none', color: 'white'}} >
-            Online shopping bucket
+            Online shopping store
             </Link>
           </Typography>
           <div className={classes.search}>
@@ -162,7 +164,6 @@ export default function Header() {
           <div className={classes.sectionDesktop}>
             <IconButton aria-label="show 4 new mails" color="inherit">
             <Link to='/cart' style={{textDecoration: 'none'}}>
-
               <Badge badgeContent={cart.length} color="secondary">
                 <ShoppingCartIcon style={{color: "white"}} />
               </Badge>

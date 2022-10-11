@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ProductCard = ({ products }) => {
+const ProductCard = ({ transform }) => {
   const classes = useStyles();
   const {
     state: { cart },
@@ -30,7 +30,7 @@ const ProductCard = ({ products }) => {
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
-        {products.map((product) => (
+        {transform().map((product) => (
           <Grid item xs={12} sm={4} key={product.id}>
             <Paper className={classes.paper}>
               <CardMedia

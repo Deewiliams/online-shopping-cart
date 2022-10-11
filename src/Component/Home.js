@@ -21,10 +21,17 @@ const useStyles = makeStyles((theme) => ({
 const Home = () => {
   const classes = useStyles();
   const {
-    state: { products },
+    state: { products },productState: { byStock, byFastDelivery, sort, byRating, searchQuery }
   } = CartState();
-  console.log("state", products);
 
+  const transform = function () {
+    let storedProducts = products;
+
+    if(sort){
+      storedProducts = storedProducts.sort((a,b) => sort === "lowToHigh"? a.price - b.price : b.price - a.price)
+    }
+    return storedProducts;
+  }
   return (
     <Container>
       <div className={classes.root}>
@@ -36,7 +43,7 @@ const Home = () => {
             </Paper>
           </Grid>
           <Grid item xs={8}>
-            <ProductCard products={products} />
+            <ProductCard transform={transform} />
           </Grid>
         </Grid>
       </div>

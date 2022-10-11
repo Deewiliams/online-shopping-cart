@@ -20,22 +20,22 @@ const useStyles = makeStyles((theme) => ({
 const Cart = () => {
   const classes = useStyles();
   const {
-    state: { cart },
+    state: { cart }, dispatch
   } = CartState();
 
   const [total, setTotal] = useState()
 
-
   useEffect(() => {
-    setTotal(cart.reduce((acc,curr) => acc + Number(curr.price),0))
+    setTotal(cart.reduce((acc,curr) => acc + Number(curr.price)*curr.qty,0))
   },[cart])
+
   return (
     <Container>
         <br />
       <div className={classes.root}>
         <Grid container spacing={3}>
           <Grid item xs={8}>
-           <CartTable cart={cart} />
+           <CartTable cart={cart} dispatch={dispatch} />
           </Grid>
           <Grid item xs={4}>
             <Paper className={classes.paper}>

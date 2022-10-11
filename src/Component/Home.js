@@ -34,6 +34,10 @@ const Home = () => {
     if(!byStock){
       storedProducts = storedProducts.filter((product) => product.inStock)
     }
+
+    if(!byFastDelivery){
+      storedProducts = storedProducts.filter((product) => product.byFastDelivery)
+    }
     return storedProducts;
   }
   return (

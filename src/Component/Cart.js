@@ -1,9 +1,42 @@
-import React from 'react'
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
+import { CartState } from "../Context/Context";
+import { Container } from "@material-ui/core";
+import CartTable from "./CartTable";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: "center",
+    color: theme.palette.text.secondary,
+  },
+}));
 
 const Cart = () => {
+  const classes = useStyles();
+  const {
+    state: { cart },
+  } = CartState();
   return (
-    <div>Cart</div>
-  )
-}
+    <Container>
+        <br />
+      <div className={classes.root}>
+        <Grid container spacing={3}>
+          <Grid item xs={8}>
+           <CartTable cart={cart} />
+          </Grid>
+          <Grid item xs={4}>
+            <Paper className={classes.paper}>xs=6</Paper>
+          </Grid>
+        </Grid>
+      </div>
+    </Container>
+  );
+};
 
-export default Cart
+export default Cart;

@@ -38,6 +38,15 @@ const Home = () => {
     if(!byFastDelivery){
       storedProducts = storedProducts.filter((product) => product.byFastDelivery)
     }
+
+    if(byRating){
+      storedProducts = storedProducts.filter((product) => product.ratings >= byRating)
+    }
+
+    if(searchQuery){
+      storedProducts = storedProducts.filter((product) => product.name.toLowerCase().includes(searchQuery))
+    }
+
     return storedProducts;
   }
   return (

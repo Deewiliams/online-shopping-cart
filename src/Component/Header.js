@@ -81,7 +81,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Header() {
     const {
-        state: { cart },
+        state: { cart },productDispatch
       } = CartState();
   const classes = useStyles();
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -149,6 +149,12 @@ export default function Header() {
                 root: classes.inputRoot,
                 input: classes.inputInput,
               }}
+              onClick={(e) =>
+                productDispatch({
+                  type: "FILTER_BY_SEARCH",
+                  payload: e.target.value
+                })
+              }
               inputProps={{ "aria-label": "search" }}
             />
           </div>

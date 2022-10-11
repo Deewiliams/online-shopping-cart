@@ -22,6 +22,7 @@ const Home = () => {
   const {
     state: { products },
   } = CartState();
+  console.log('state',products);
 
   return (
     <div className={classes.root}>

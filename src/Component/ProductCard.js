@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import { CardMedia } from "@material-ui/core";
+import { CardMedia, Typography, Button} from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.secondary,
   },
   media: {
-    height: 0,
+    height: 100,
     paddingTop: "56.25%", // 16:9
   },
 }));
@@ -27,13 +27,21 @@ const ProductCard = ({ products }) => {
         {products.map((product) => (
           <Grid item xs={12} sm={4} key={product.id}>
             <Paper className={classes.paper}>
-              {product.name}
               <CardMedia
                 style={{ cursor: "pointer" }}
                 className={classes.media}
                 image={product.image}
                 title={product.name}
               />
+              <div style={{textAlign: 'start'}}>
+              <Typography>{product.name}</Typography>
+              <Typography>K {product.price}</Typography>
+
+              <Typography>{product.fastDelivery}</Typography>
+              <Button size="small" variant="contained" color="primary">
+                Add to Cart
+              </Button>
+              </div>
             </Paper>
           </Grid>
         ))}

@@ -1,12 +1,14 @@
-import React from "react";
+import React,{useState} from "react";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
+import { Ratings } from "./Ratings";
 
 export const Filter = () => {
-  const [value, setValue] = React.useState("female");
+  const [value, setValue] = useState("female");
+  const [rate, setRate] = useState(0)
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -47,6 +49,10 @@ export const Filter = () => {
             control={<Radio />}
             label="Fast delivery only"
           />
+          <span>
+            <label>Rating: </label>
+            <Ratings rate={rate} onClick={(index) => setRate(index + 1)} style={{cursor: 'pointer'}} />
+          </span>
         </RadioGroup>
       </FormControl>
     </div>

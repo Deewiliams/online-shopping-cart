@@ -29,16 +29,14 @@ const Home = () => {
     <Container>
       <div className={classes.root}>
         <br />
-        <Grid container spacing={3}>
+        <Grid container spacing={3} >
           <Grid item xs={4}>
             <Paper className={classes.paper}>
               <Filter />
             </Paper>
           </Grid>
           <Grid item xs={8}>
-            {products.map((product) => (
               <ProductCard products={products} />
-            ))}
           </Grid>
         </Grid>
       </div>

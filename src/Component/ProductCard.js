@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import { CardMedia, Typography, Button} from "@material-ui/core";
+import { CardMedia, Typography, Button } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,14 +33,17 @@ const ProductCard = ({ products }) => {
                 image={product.image}
                 title={product.name}
               />
-              <div style={{textAlign: 'start'}}>
-              <Typography>{product.name}</Typography>
-              <Typography>K {product.price}</Typography>
-
-              <Typography>{product.fastDelivery}</Typography>
-              <Button size="small" variant="contained" color="primary">
-                Add to Cart
-              </Button>
+              <div style={{ textAlign: "start" }}>
+                <Typography>{product.name}</Typography>
+                <Typography>K {product.price.split(".")[0]}</Typography>
+                {product.fastDelivery ? (
+                  <Typography>fastDelivery</Typography>
+                ) : (
+                <Typography>4 days delivery</Typography>
+                )}
+                <Button size="small" variant="contained" color="primary">
+                  Add to Cart
+                </Button>
               </div>
             </Paper>
           </Grid>

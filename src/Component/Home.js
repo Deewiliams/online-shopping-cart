@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import { Container } from "@material-ui/core";
 import { CartState } from "../Context/Context";
 import ProductCard from "./ProductCard";
+import { Filter } from "./Filter";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,22 +23,26 @@ const Home = () => {
   const {
     state: { products },
   } = CartState();
-  console.log('state',products);
+  console.log("state", products);
 
   return (
-    <div className={classes.root}>
-      <br />
-      <Grid container spacing={3}>
-        <Grid item xs={4}>
-          <Paper className={classes.paper}>xs=6</Paper>
+    <Container>
+      <div className={classes.root}>
+        <br />
+        <Grid container spacing={3}>
+          <Grid item xs={4}>
+            <Paper className={classes.paper}>
+              <Filter />
+            </Paper>
+          </Grid>
+          <Grid item xs={8}>
+            {products.map((product) => (
+              <ProductCard products={products} />
+            ))}
+          </Grid>
         </Grid>
-        <Grid item xs={8}>
-          {products.map((product) => (
-            <ProductCard products={products} />
-          ))}
-        </Grid>
-      </Grid>
-    </div>
+      </div>
+    </Container>
   );
 };
 

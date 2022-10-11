@@ -30,7 +30,7 @@ const Home = () => {
       <div className={classes.root}>
         <br />
         <Grid container spacing={3}>
-          <Grid item xs={4}>
+          <Grid item xs={12} sm={4}>
             <Paper className={classes.paper}>
               <Filter />
             </Paper>

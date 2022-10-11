@@ -29,10 +29,6 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
-
-
-
-
 const useStyles = makeStyles({
   table: {
     minWidth: 700,
@@ -49,7 +45,6 @@ const CartTable = ({cart}) => {
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="customized table">
         <TableHead>
-        
         </TableHead>
         <TableBody>
           {cart.map((product) => (

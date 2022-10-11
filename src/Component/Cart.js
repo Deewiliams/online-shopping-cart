@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
@@ -22,6 +22,13 @@ const Cart = () => {
   const {
     state: { cart },
   } = CartState();
+
+  const [total, setTotal] = useState()
+
+
+  useEffect(() => {
+    setTotal(cart.reduce((acc,curr) => acc + Number(curr.price),0))
+  },[cart])
   return (
     <Container>
         <br />
@@ -31,7 +38,9 @@ const Cart = () => {
            <CartTable cart={cart} />
           </Grid>
           <Grid item xs={4}>
-            <Paper className={classes.paper}>xs=6</Paper>
+            <Paper className={classes.paper}>
+                Total {total}
+            </Paper>
           </Grid>
         </Grid>
       </div>

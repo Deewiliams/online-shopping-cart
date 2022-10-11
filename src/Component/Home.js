@@ -30,6 +30,10 @@ const Home = () => {
     if(sort){
       storedProducts = storedProducts.sort((a,b) => sort === "lowToHigh"? a.price - b.price : b.price - a.price)
     }
+
+    if(!byStock){
+      storedProducts = storedProducts.filter((product) => product.inStock)
+    }
     return storedProducts;
   }
   return (

@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import { CardMedia, Typography, Button } from "@material-ui/core";
+import { Ratings } from "./Ratings";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,6 +42,9 @@ const ProductCard = ({ products }) => {
                 ) : (
                 <Typography>4 days delivery</Typography>
                 )}
+                <Typography>
+                <Ratings rate={product.ratings} />
+                </Typography>
                 <Button size="small" variant="contained" color="primary">
                   Add to Cart
                 </Button>

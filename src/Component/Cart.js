@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import { CartState } from "../Context/Context";
-import { Container, Typography ,Button} from "@material-ui/core";
+import { Container, Typography, Button } from "@material-ui/core";
 import CartTable from "./CartTable";
 
 const useStyles = makeStyles((theme) => ({
@@ -42,11 +42,16 @@ const Cart = () => {
           </Grid>
           <Grid item xs={4}>
             <Paper className={classes.paper}>
-              <div style={{textAlign: 'start'}}>
-              <Typography>SubTotal ({cart.length}) Items</Typography>
-              <Typography>Total k {total}</Typography>
+              <div style={{ textAlign: "start" }}>
+                <Typography style={{ fontSize: 30 }}>
+                  SubTotal{" "}
+                  <span style={{ color: "black" }}>({cart.length})</span> Items
+                </Typography>
+                <Typography style={{ fontSize: 20 }}>
+                  Total: <span style={{ color: "black" }}>k {total}</span>
+                </Typography>
               </div>
-              <Button variant="contained" color="primary" fullWidth >
+              <Button variant="contained" color="primary" fullWidth>
                 Process to checkout
               </Button>
             </Paper>

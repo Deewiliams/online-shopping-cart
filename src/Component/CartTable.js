@@ -36,7 +36,8 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 700,
   },
   media: {
-    height: 50,
+    width: 150,
+    height: 30,
     paddingTop: "56.25%", // 16:9
   },
   formControl: {

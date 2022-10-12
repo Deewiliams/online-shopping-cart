@@ -35,7 +35,7 @@ const Home = () => {
       storedProducts = storedProducts.filter((product) => product.inStock)
     }
 
-    if(!byFastDelivery){
+    if(byFastDelivery){
       storedProducts = storedProducts.filter((product) => product.byFastDelivery)
     }
 

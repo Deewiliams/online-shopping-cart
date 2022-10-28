@@ -37,10 +37,10 @@ const Cart = () => {
       <br />
       <div className={classes.root}>
         <Grid container spacing={3}>
-          <Grid item xs={8}>
+          <Grid item xs={12}>
             <CartTable cart={cart} dispatch={dispatch} />
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={12}>
             <Paper className={classes.paper}>
               <div style={{ textAlign: "start" }}>
                 <Typography style={{ fontSize: 30 }}>
